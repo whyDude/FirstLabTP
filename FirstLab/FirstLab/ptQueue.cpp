@@ -87,3 +87,26 @@ void ptQueue::copy(ptQueue& Q)
 }
 
 bool ptQueue::blSmthng() { return size == 0 ? true : false; }
+
+int ptQueue::specFunction()
+{
+	cell* last = get_last();
+	int max = get_last()->data;
+	int min = get_last()->data;
+	int result = 0;
+
+	if (size == 0){cout << "Queue is clear" << endl;}
+	else
+	{
+		while (last != nullptr)
+		{
+			if (last->data > max)
+				max = last->data;
+			if (last->data < min)
+				min = last->data;
+			last = last->ptrPrev;
+		}
+		result = max - min;
+	}
+	return result;
+}

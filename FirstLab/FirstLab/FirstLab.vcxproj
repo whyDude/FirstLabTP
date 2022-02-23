@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="chdQueuecpp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ptQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="chdQueue.h" />
     <ClInclude Include="ptQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

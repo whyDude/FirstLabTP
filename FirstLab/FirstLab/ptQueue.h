@@ -18,7 +18,8 @@ public:
 	void push(int elem);
 	int  pop();
 	void print();
-	void merge(ptQueue& Q1);
+	void merge(ptQueue& Q);
 	void copy(ptQueue& Q);
 	bool blSmthng();
+	int specFunction();
 };
