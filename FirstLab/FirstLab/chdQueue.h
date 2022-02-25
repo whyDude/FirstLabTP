@@ -1,9 +1,9 @@
 #pragma once
 #include"ptQueue.h"
 
-class chdQueue_pri : private ptQueue
+class chdQueue_pri : private ptQueue //дочерний класс с модификатором приват
 {
-public:
+public: //те же методы, только в паблике
 	int specFunction();
 	void push(int elem);
 	int  pop();
@@ -13,9 +13,9 @@ public:
 	bool blSmthng();
 };
 
-class chdQueue_pro : protected ptQueue
+class chdQueue_pro : protected ptQueue //дочерний класс с модификатором протект
 {
-public:
+public://те же методы, только в паблике
 	int specFunction();
 	void push(int elem);
 	int  pop();
@@ -25,8 +25,8 @@ public:
 	bool blSmthng();
 };
 
-class chdQueue_pab : public ptQueue
+class chdQueue_pab : public ptQueue //дочерний класс с модификатором паблик
 {
-public:
+public: //тут не надо, и так все открыто и доступно
 	
 };

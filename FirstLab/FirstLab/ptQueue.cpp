@@ -3,8 +3,8 @@
 
 using namespace std;
 
-ptQueue::ptQueue() { last = 0; size = 0; }
-ptQueue::~ptQueue()
+ptQueue::ptQueue() { last = 0; size = 0; } //конструктор
+ptQueue::~ptQueue() //деконструктор
 {
 	while (size > 0)
 	{
@@ -15,9 +15,9 @@ ptQueue::~ptQueue()
 	}
 }
 
-cell* ptQueue::get_last() { return last; }
+cell* ptQueue::get_last() { return last; } //геттер конца очереди
 
-void ptQueue::push(int elem)
+void ptQueue::push(int elem) //метод добавления элемента в очередь
 {
 	cell* newCell = new cell;
 	newCell->ptrPrev = last;
@@ -26,7 +26,7 @@ void ptQueue::push(int elem)
 	size++;
 }
 
-int ptQueue::pop()
+int ptQueue::pop() //метод изъятия элемента из очереди
 {
 	cell* temp = last;
 	int tmpData = 0;
@@ -49,7 +49,7 @@ int ptQueue::pop()
 	return tmpData;
 }
 
-void ptQueue::print()
+void ptQueue::print() //метод вывода очереди на экран
 {
 	cell* temp = last;
 	while (temp->ptrPrev != nullptr)
@@ -60,7 +60,7 @@ void ptQueue::print()
 	cout << temp->data << endl;
 }
 
-void ptQueue::merge(ptQueue& Q)
+void ptQueue::merge(ptQueue& Q) //метод слияния очереди
 {
 	int* buffData = new int[Q.size];
 	cell* temp = Q.last;
@@ -73,8 +73,7 @@ void ptQueue::merge(ptQueue& Q)
 	delete[] buffData;
 }
 
-void ptQueue::copy(ptQueue& Q)
-{
+void ptQueue::copy(ptQueue& Q){ //метод копирования очереди
 	int* buffData = new int[Q.size];
 	cell* temp = Q.last;
 	for (int i = Q.size - 1; i >= 0; i--)
@@ -86,9 +85,9 @@ void ptQueue::copy(ptQueue& Q)
 	delete[] buffData;
 }
 
-bool ptQueue::blSmthng() { return size == 0 ? true : false; }
+bool ptQueue::blSmthng() { return size == 0 ? true : false; } //метод проверки на заполненность
 
-int ptQueue::specFunction()
+int ptQueue::specFunction() //метод выполнения задачи
 {
 	cell* last = get_last();
 	int max = get_last()->data;
