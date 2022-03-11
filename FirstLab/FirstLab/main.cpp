@@ -97,14 +97,23 @@ void choozen_queue(T* queue, int qNumb)//шаблончик
 
 			else
 			{
-				if (count == qNumb)
+				system("cls");
+				cout << "Which queue u wanna clone?" << endl;
+				cin >> chosen_q;
+				if ((chosen_q < 0) || (chosen_q >= qNumb) || (chosen_q == index))
 				{
-					cout << "U cant add new queue, cause number of queues is max.\n" << endl;
+					cout << "Somethig wrong!\n" << endl;
 					system("pause");
 					break;
 				}
-				system("cls");
-				queue[count].copy(queue[index]);
+				if (!queue[chosen_q].blSmthng())
+				{
+					cout << "U can't clone, cause second queue is not free.\n" << endl;
+					system("pause");
+					break;
+				}
+
+				queue[chosen_q].copy(queue[index]);
 				cout << "Queue has been copied. U get 2 the same queues.\n" << endl;
 				count++;
 			}
@@ -140,7 +149,7 @@ void choozen_queue(T* queue, int qNumb)//шаблончик
 		case 7:
 			system("cls");
 			cout << "Queue is choosen number>>" << index << endl;
-			cout << "Input number of queue (by 0 to " << qNumb << ") , that u wanna choose: ";
+			cout << "Input number of queue (by 0 to " << qNumb-1 << ") , that u wanna choose: ";
 			cin >> chosen_q;
 			if ((chosen_q < 0) || (chosen_q >= qNumb) || (chosen_q == index))
 
@@ -152,6 +161,7 @@ void choozen_queue(T* queue, int qNumb)//шаблончик
 			{
 				index = chosen_q;
 				system("cls");
+				count++;
 				cout << "U switched to queue number>>" << index << endl;
 				cout << "\n";
 			}
